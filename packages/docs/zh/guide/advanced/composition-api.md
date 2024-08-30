@@ -61,7 +61,7 @@ Vue Router 将更新和离开守卫作为组合式 API 函数公开：
 import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router'
 import { ref } from 'vue'
 
-// 与 beforeRouteLeave 相同，无法访问 `this`
+// 与 beforeRouteLeave 相同，可以访问 `this`
 onBeforeRouteLeave((to, from) => {
   const answer = window.confirm(
     'Do you really want to leave? you have unsaved changes!'
@@ -72,7 +72,7 @@ onBeforeRouteLeave((to, from) => {
 
 const userData = ref()
 
-// 与 beforeRouteUpdate 相同，无法访问 `this`
+// 与 beforeRouteUpdate 相同，可以访问 `this`
 onBeforeRouteUpdate(async (to, from) => {
   //仅当 id 更改时才获取用户，例如仅 query 或 hash 值已更改
   if (to.params.id !== from.params.id) {
